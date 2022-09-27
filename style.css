@@ -1,0 +1,83 @@
+body {
+    margin: 50px auto;
+    width: fit-content; height: fit-content;
+    background: linear-gradient(248deg,
+   rgba(255, 231, 224, 1) 7%,
+   rgba(255, 231, 224, 1) 7%,
+   rgba(255, 246, 230, 1) 31%,
+   rgba(254, 247, 223, 1) 65%);
+    background-size: 100% auto;
+    background-repeat: no-repeat; height: 1600px;
+}
+
+  h1 {
+    color: #d691aec2;
+    margin: 70px 0px auto;
+    text-transform: uppercase; 
+    font-size: 40px;
+    font-weight: 30px;
+    font-family: 'Source Code Pro', monospace; 
+  }
+  
+  #degree,
+  #icon {
+    color: #71788a;
+    font-size: 65px; font-weight: 300;
+    padding: 0px 5px 25px 0px; 
+    line-height: 30px;   
+  }
+  .units { 
+    color: #d691aec2;
+    padding: 1px 0px 1px; font-size: 12px;
+    margin-bottom: 68px;
+    position: relative;
+    text-align:top;
+  }
+  
+  h2 {
+    color: #71788a; font-family: 'Source Code Pro', monospace;
+    padding: 0px auto; font-weight: 300;
+    line-height: 30px;
+  }
+  h3 {
+    color: #71788a; font-family: 'Source Code Pro', monospace;
+    font-size: 20px; line-height: 20px;
+    font-size-adjust: inherit; color: #71788a;
+  }
+
+  #weatherCondition {
+    text-transform: uppercase;
+  }
+  
+  #city {
+    font-size: 34px; 
+    line-height: 26px;}
+  .days {
+    width: fit-content;
+    padding: 10px 10px auto;
+  }
+  #currentLocation,
+  #button-addon2 {
+    background-color: transparent; 
+    padding: 6px 12px; text-size-adjust: 8px;
+    transition: all 200mm ease-in-out;  
+  }
+  #currentLocation {
+    margin: 0px 12px;
+  }
+  #button-addon2:hover, #currentLocation:hover,
+  .button:hover {
+    background-color: #C2D4EB;
+    border-color:#d9ecf6;
+    padding: 6px 12px; text-size-adjust: 8px;
+  }
+  #codeBy {
+    font-family: 'Source Code Pro', monospace;
+    padding: 14px 0px;
+    font-size: 14px;
+    color: #71788a;
+  }
+  #gitLink {
+    color: #d691aec2;
+  }
+  

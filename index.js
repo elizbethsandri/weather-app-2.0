@@ -57,10 +57,9 @@ let now = new Date();
   document.querySelector(`#weatherCondition`).innerHTML = response.data.weather[0].description;
   document.querySelector(`#min`).innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector(`#max`).innerHTML = Math.round(response.data.main.temp_max);
-  }
-
-
-  
+  document.querySelector(`#humidity`).innerHTML = response.data.main.humidity;
+  document.querySelector(`#wind`).innerHTML = response.data.wind.speed;
+  } 
 
   function updateCity(event) {
   event.preventDefault();

@@ -37,14 +37,14 @@
 
     <div class="row align-items">
     <div class="col-5">       
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+        <img id="icon" src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt="Cloudy icon" class="weather-icon float-left" id="icon"/>
         <span id="degree">19</span>  
-        <button type="button" class="btn btn-link units" id="celsius">ºC</button>
-        <button type="button" class="btn btn-link units" id="fahrenheit">ºF</button>
+        <button type="button" class="btn btn-link units" id="celsius" class="active">ºC</button>
+        <button type="button" class="btn btn-link units" id="fahrenheit" class="active">ºF</button>
     </div>    
         <h2 id="city">São Paulo</h2>
-        <h2 id="today">Sunday<br></h2>
+        <h2 id="today">Sunday, <span id="hour">5:00</span></h2>
         <h3 id="weatherCondition">Clear</h3> 
         <h3>min <span id="min">12</span>º | max <span id="max">23</span>º</h3>      
         <h3>humidity <span id="humidity">50</span>%</h3>

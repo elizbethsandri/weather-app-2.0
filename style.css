@@ -36,8 +36,8 @@ body {
     border-color: #a9b1b9;
   }
   #currentLocation {
-    position: relative; right: 20px;
-    padding: 6px 20px; text-size-adjust: 8px;
+    position: relative; right: 5px;
+    padding: 6px 30px; text-size-adjust: 8px;
   }
   
   #button-addon2:hover, #currentLocation:hover,
@@ -55,13 +55,23 @@ body {
     padding: 0px 5px auto; 
     line-height: 5px;
   }
-  .units { 
+  .units {
     color: #d691aec2;
-    padding: 1px 0px 1px; font-size: 12px;
+    padding: 1px 0px 1px; font-size: 14px;
     margin-bottom: 68px;
     position: relative;
-    text-align:top;
-  }  
+    text-align:top;  
+  }
+
+  .units, .active { 
+    text-decoration: none;
+    cursor: pointer;
+   }
+  .units, .active:hover {
+    cursor: default;
+    color:#d691aec2;
+  }
+
   h2 {
     color: #71788a; font-family: 'Source Code Pro', monospace;
     padding: 0px auto; font-weight: 300;

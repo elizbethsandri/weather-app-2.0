@@ -1,5 +1,10 @@
 let now = new Date();
   
+  console.log(now);
+  console.log(now.getDay());
+  console.log(now.getHours());
+  console.log(now.getMinutes());
+  
   function formatDate(date) {
   let days = [
     `Sunday`, 
@@ -18,46 +23,55 @@ let now = new Date();
   if (currentHour < 10) {currentHour = `0${currentHour}`};
   if (currentMinutes < 10) {currentMinutes = `0${currentMinutes}`};
 
-  let todayIs = document.querySelector(`h2#today`);
+  let todayIs = document.querySelector(`#today`);
   todayIs.innerHTML = `${currentDay}, ${currentHour}:${currentMinutes}`; 
   }
 
+  console.log(formatDate(now));
+
+  function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  return days[day];
+
+  }
 
   function displayForecast(response) {
-    console.log(response.data.daily);
-  let forecastElement = document.querySelector("#forecast");
+    let forecast = response.data.daily;    
+    let forecastElement = document.querySelector("#forecast")
 
-  let days = ["mon", "tue", "wed", "fri"];
   
-  let forecastHTML = `<div class="row">`;
-  
-  days.forEach(function (day) {
-  forecastHTML = 
-  forecastHTML + 
-  `      
-  <div class="col">
-    <div class="forecast-date" id="day1">${day}</div>
-    <img src="http://openweathermap.org/img/wn/10d@2x.png" width="100" height="100"/>
-    <div class="forecast-temperature">
-      <span class="forecast-temperature-max">21°</span>
-      <span class="forecast-temperature-min">17°</span>
-    </div>
-  </div>
-  ` 
-  ;
-  });
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
-}
+      
+      let forecastHTML = `<div class="row">`;
+      forecast.forEach(function (forecastDay, index) {
+        if (index < 6) {
+        forecastHTML =
+          forecastHTML +
+      `      
+      <div class="col">
+        <div class="forecast-date" id="day1">${formatForecastDay(forecastDay.dt)}</div>
+        <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="100" height="100"/>
+        <div class="forecast-temperature">
+          <span class="forecast-temperature-max">${Math.round(forecastDay.temp.max)}º</span>
+          <span class="forecast-temperature-min">${Math.round(forecastDay.temp.min)}º</span>
+        </div>
+      </div>
+      ` 
+      ;
+    }
+      });
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+    }
 
   function getForecast(coordinates) {
     console.log(coordinates);
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayForecast);
-    
   }
-
+  
   function displayWeatherCondition(response) {
   console.log(response.data);
   
@@ -73,7 +87,8 @@ forecastElement.innerHTML = forecastHTML;
   iconElement.setAttribute("src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  getForecast(response.data.coord); 
+
+  getForecast(response.data.coord);
   } 
 
   function updateCity(event) {
@@ -140,8 +155,6 @@ forecastElement.innerHTML = forecastHTML;
   celsiusLink.addEventListener("click", convertToCelsius);
 
   searchCity("New York");
-
-
   
 
 

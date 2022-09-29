@@ -40,7 +40,7 @@ let now = new Date();
   iconElement.setAttribute("src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   ); 
-} 
+  } 
 
   function updateCity(event) {
   event.preventDefault();
@@ -106,6 +106,10 @@ let now = new Date();
   celsiusLink.addEventListener("click", convertToCelsius);
 
   searchCity("New York");
+
+  
+
+
 
 
 

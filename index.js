@@ -22,13 +22,33 @@ let now = new Date();
   todayIs.innerHTML = `${currentDay}, ${currentHour}:${currentMinutes}`; 
   }
 
-  console.log(formatDate(now));
 
+  function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["mon", "tue", "wed", "fri"];
+  days.forEach(function (day) {
+  forecastHTML = 
+  forecastHTML + 
+  `      
+  <div class="col">
+    <div class="forecast-date" id="day1">${day}</div>
+    <img src="http://openweathermap.org/img/wn/10d@2x.png" width="100" height="100"/>
+    <div class="forecast-temperature">
+      <span class="forecast-temperature-max">21°</span>
+      <span class="forecast-temperature-min">17°</span>
+    </div>
+  </div>
+  ` 
+  ;
+  });
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
   function displayWeatherCondition(response) {
   console.log(response.data);
   
   celsiusTemperature = response.data.main.temp;
-
   let iconElement = document.querySelector(`#icon`);
   document.querySelector(`#city`).innerHTML = response.data.name;
   document.querySelector(`#degree`).innerHTML = Math.round(celsiusTemperature);
@@ -106,6 +126,7 @@ let now = new Date();
   celsiusLink.addEventListener("click", convertToCelsius);
 
   searchCity("New York");
+  displayForecast();
 
   
 

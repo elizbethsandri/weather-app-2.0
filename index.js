@@ -34,14 +34,11 @@ let now = new Date();
   let day = date.getDay();
   let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
   return days[day];
-
   }
 
   function displayForecast(response) {
     let forecast = response.data.daily;    
-    let forecastElement = document.querySelector("#forecast")
-
-  
+    let forecastElement = document.querySelector("#forecast");
       
       let forecastHTML = `<div class="row">`;
       forecast.forEach(function (forecastDay, index) {
@@ -75,7 +72,7 @@ let now = new Date();
   function displayWeatherCondition(response) {
   console.log(response.data);
   
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = (response.data.main.temp);
   let iconElement = document.querySelector(`#icon`);
   document.querySelector(`#city`).innerHTML = response.data.name;
   document.querySelector(`#degree`).innerHTML = Math.round(celsiusTemperature);
@@ -89,7 +86,7 @@ let now = new Date();
   );
 
   getForecast(response.data.coord);
-  } 
+  }
 
   function updateCity(event) {
   event.preventDefault();
@@ -110,7 +107,6 @@ let now = new Date();
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeatherCondition);
   }
-
   
   function showPosition(position) {
   let lat = position.coords.latitude;
@@ -124,35 +120,9 @@ let now = new Date();
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(showPosition); 
   }
-  
-  let celsiusTemperature = null;
 
   let currentLocationButton = document.querySelector("#currentLocation");
   currentLocationButton.addEventListener("click", currentLocation);
-
-
-  function convertToFahrenheit(event) {
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#degree");
-    celsiusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
-    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-  }
-  
-  function convertToCelsius(event) {
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#degree");
-    celsiusLink.classList.add("active");
-    fahrenheitLink.classList.remove("active");
-    temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  }
-  
-  let fahrenheitLink = document.querySelector("#fahrenheit");
-  fahrenheitLink.addEventListener("click", convertToFahrenheit);
-  
-  let celsiusLink = document.querySelector("#celsius");
-  celsiusLink.addEventListener("click", convertToCelsius);
 
   searchCity("New York");
   

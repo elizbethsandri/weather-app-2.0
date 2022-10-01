@@ -3,10 +3,10 @@ body {
     height: fit-content;
     width: fit-content;
 }
-.weather-app-wrapper {
+#background {
   max-width: 1000px; 
   height: fit-content;
-  padding: 20px 30px; 
+  padding: 20px 50px; 
   border: 1px solid #dadde1;
   border-radius: 10px;
   background: linear-gradient(248deg,
@@ -54,21 +54,13 @@ body {
     padding: 0px 5px auto; 
     line-height: 5px;
   }
-  .units {
-    color: #d691aec2;
-    padding: 1px 0px 1px; font-size: 14px;
+  #celsius {
+    color: #71788a;
+    padding: 1px 5px 1px; 
+    font-size: 20px;
     margin-bottom: 68px;
     position: relative;
-    text-align:top;  
-  }
-
-  .units, .active { 
-    text-decoration: none;
-    cursor: pointer;
-   }
-  .units, .active:hover {
-    cursor: default;
-    color:#d691aec2;
+    bottom: 30px;
   }
 
   h2 {

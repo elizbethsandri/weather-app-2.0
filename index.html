@@ -18,7 +18,7 @@
   
   <body>
     <form> 
-    <div class="weather-app-wrapper"> 
+    <div class="weather-app-wrapper" id="background"> 
     <h1>weather today</h1>
     <br /><br />
     <div class="container">     
@@ -39,17 +39,22 @@
       <div class="col-8">       
         <img id="icon" src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt="Cloudy icon" class="weather-icon float-left" id="icon"/>
-        <span id="degree">19</span>  
-        <button type="button" class="btn btn-link units" id="celsius" class="active">ºC</button>
-        <button type="button" class="btn btn-link units" id="fahrenheit" class="active">ºF</button>
-    </div> 
+        <span id="degree">19</span>
+        <span id="celsius">ºC</span>
+      </div> 
+      <div class="weather-details">
+        <div class="row">
+          <div class="col-7">  
         <h2 id="city">São Paulo</h2>
         <h2 id="today">Sunday</h2>
+        <div class="col-7">  
         <h3 id="weatherCondition">Clear</h3> 
         <h3>min <span id="min">12</span>º | max <span id="max">23</span>º</h3>      
         <h3>humidity <span id="humidity">50</span>%</h3>
         <h3>wind <span id="wind"> 7</span>km/h</h3>
-    </div>    
+        </div>
+        </div>
+      </div>      
     <br /> 
     <div class="weather-forecast" id="forecast">
       <div class="row">

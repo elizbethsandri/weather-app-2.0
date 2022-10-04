@@ -58,21 +58,23 @@ let now = new Date();
       ;
     }
       });
+
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
     }
 
   function getForecast(coordinates) {
     console.log(coordinates);
-    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiKey = "8cac06f7ab6c10287cd06a316ff84a57";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayForecast);
   }
   
   function displayWeatherCondition(response) {
   console.log(response.data);
+
+  celsiusTemperature = response.data.main.temp;
   
-  celsiusTemperature = (response.data.main.temp);
   let iconElement = document.querySelector(`#icon`);
   document.querySelector(`#city`).innerHTML = response.data.name;
   document.querySelector(`#degree`).innerHTML = Math.round(celsiusTemperature);
@@ -86,11 +88,31 @@ let now = new Date();
   );
 
   getForecast(response.data.coord);
+
+  if (celsiusTemperature <= 5) {
+    document.querySelector("#background").style.background =
+  "linear-gradient(to bottom, rgba(241,248,255,1), rgba(235,245,255,1), rgba(222,238,255,1), rgba(205,222,240,1), rgba(197,215,233,1)";
+}
+
+  if (celsiusTemperature >= 6 ) {
+    document.querySelector("#background").style.background =
+  "linear-gradient(to bottom, rgba(255,252,252,1), rgba(225,230,251,1), rgba(225,230,251,1), rgba(214,222,252,1)"; 
+}
+
+  if (celsiusTemperature >= 14 ) {
+    document.querySelector("#background").style.background =
+  "linear-gradient(to top, rgba(255, 231, 224, 1), rgba(255,235,199,1), rgba(255,251,245,1), rgba(255,251,245,1)"; 
   }
+  if (celsiusTemperature >= 19 ) {
+    document.querySelector("#background").style.background =
+  "linear-gradient(180deg, rgba(255,247,233,1), rgba(255,243,223,1), rgba(255,235,199,1), rgba(255,228,182,1)";
+  }
+}
+
 
   function updateCity(event) {
   event.preventDefault();
-  let apiKey = `6bb85c847753f42906fed65eb4885241`;
+  let apiKey = `8cac06f7ab6c10287cd06a316ff84a57`;
   let city = document.querySelector(`#city-search`).value;
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -103,7 +125,7 @@ let now = new Date();
   searchedCityButtton.addEventListener("click", updateCity);
 
   function searchCity(city) {
-    let apiKey = "6bb85c847753f42906fed65eb4885241";
+    let apiKey = "8cac06f7ab6c10287cd06a316ff84a57";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeatherCondition);
   }
@@ -119,13 +141,12 @@ let now = new Date();
   function currentLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(showPosition); 
-  }
-
+  } 
+  
   let currentLocationButton = document.querySelector("#currentLocation");
   currentLocationButton.addEventListener("click", currentLocation);
 
   searchCity("New York");
-  
 
 
 

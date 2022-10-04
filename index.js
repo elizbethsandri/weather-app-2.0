@@ -105,7 +105,7 @@ let now = new Date();
   }
   if (celsiusTemperature >= 19 ) {
     document.querySelector("#background").style.background =
-  "linear-gradient(180deg, rgba(255,247,233,1), rgba(255,243,223,1), rgba(255,235,199,1), rgba(255,228,182,1)";
+  "linear-gradient(180deg, rgba(255,247,233,1), rgba(255,245,231,1), rgba(255,245,231,1), rgba(255,228,182,1)";
   }
 }
 

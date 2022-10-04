@@ -101,7 +101,7 @@ let now = new Date();
 
   if (celsiusTemperature >= 14 ) {
     document.querySelector("#background").style.background =
-  "linear-gradient(to top, rgba(255, 231, 224, 1), rgba(255,235,199,1), rgba(255,251,245,1), rgba(255,251,245,1)"; 
+  "linear-gradient(to top, rgba(255,235,199,1), rgba(255,235,199,1), rgba(255,251,245,1), rgba(255,251,245,1)"; 
   }
   if (celsiusTemperature >= 19 ) {
     document.querySelector("#background").style.background =

@@ -40,13 +40,13 @@ let now = new Date();
     let forecast = response.data.daily;    
     let forecastElement = document.querySelector("#forecast");
       
-      let forecastHTML = `<div class="row">`;
+      let forecastHTML = `<div class="row flex-sm-fill">`;
       forecast.forEach(function (forecastDay, index) {
-        if (index < 6) {
+        if (index < 5) {
         forecastHTML =
           forecastHTML +
       `      
-      <div class="col">
+      <div class="col-sm">
         <div class="forecast-date" id="day1">${formatForecastDay(forecastDay.dt)}</div>
         <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="100" height="100"/>
         <div class="forecast-temperature">
